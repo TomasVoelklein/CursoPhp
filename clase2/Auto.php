@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 //clase
  class Auto {
     private $_color;
@@ -21,33 +24,24 @@
     public function agregarImpuestos($impuesto) {
         $this->_precio += $impuesto;
     }
-    
-        //obtener atributos
-    
- function getColor() {
-    return $this->_color;
-}
-
-public function getPrecio() {
-    return $this->_precio;
-}
-
-public function getMarca() {
-    return $this->_marca;
-}
-
-public function getFecha() {
-    return $this->_fecha;
-}
-
-public static function MostrarAuto($auto) {
-    echo "Marca: " . $auto->_marca . "<br>";
-    echo "Color: " . $auto->_color . "<br>";
-    echo "Precio: $" . $auto->_precio . "<br>";
-    echo "Fecha: " . $auto->_fecha->format('Y-m-d') . "<br>";
+ 
+public function MostrarAuto(){
+    echo "Marca: " . $this-> _marca . "<br>";
+    echo "Color: " . $this->_color . "<br>";
+    echo "Precio: $" . $this->_precio . "<br>";
+    echo "Fecha: " . $this->_fecha->format('Y-m-d') ."<br>";
 }
 
 }
 
+//instanciar
 $miAuto = new Auto('Fiat', 'Rojo', 20000);
+
+//llamar al metodo
+$miAuto->agregarImpuestos(500);
+ 
+//mostrar
+$miAuto->MostrarAuto();
+
+
 ?>
